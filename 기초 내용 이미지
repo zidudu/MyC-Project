@@ -1,0 +1,29 @@
+#include <SFML/Graphics.hpp> //SFML의 그래픽 모듈 사용하기위해 헤더파일 포함함.다양한 그래픽 객체와 함수제공해서 화면에 그래픽 그리고 조작가능하게 함
+using namespace sf; //sf라는 이름공간이 있고, 이 이름공간에 들어있는 함수나 클래스들을 사용가능, using 지시어를 사용해 using namespace sf; 로  sf:: 생략가능
+int main() { //기본적으로 넣어야 하는 메인 함수
+	RenderWindow window(VideoMode(600, 600), "GOOD SFML!"); //RenderWindow의 window라는 객체를 만들고 매개변수를 VideoMode(200, 200), "SFML works!"로 놓음
+	window.setFramerateLimit(60);
+
+	Texture t2;
+	Sprite lander;
+	t2.loadFromFile("C://Users//user//Desktop//만도5기000//20240325//0429earth//images//spaceship.jpg");
+	lander.setTexture(t2);
+
+	Event event;
+	while (window.pollEvent(event))
+	{
+		if (event.type == Event::Closed)
+			window.close();
+	
+
+		window.clear();
+		window.draw(lander);
+
+		window.display();
+
+	}
+
+	
+
+	return 0;
+}
